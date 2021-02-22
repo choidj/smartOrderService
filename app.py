@@ -10,11 +10,6 @@ import flask_cors CORS, cross_origin
 app = Flask(__name__)
 CORS(app)
 logging.basicConfig(filename="logs/test.log", level=logging.DEBUG)
-conn = pymysql.connect(host='3.36.135.2',
-                       port=3306,
-                       user='tkddn2356',
-                       password='qwe123012',
-                       db='smart_order')
 
 each_menu_recommend_data = []
 each_user_rate_menu_data = []
