@@ -7,7 +7,6 @@ import multiprocessing
 import time
 import csv
 
-from compute_recommending_menu import user_recommend
 
 request_result_num = 5
 conn = pymysql.connect(host='3.36.135.2',

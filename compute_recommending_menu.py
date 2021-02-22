@@ -2,9 +2,7 @@ import pandas as pd
 import numpy as np
 import multiprocessing
 
-from flask import request
 
-import log
 
 
 def process_recommend(ratings_matrix, each_menu_recommend_data, return_list):

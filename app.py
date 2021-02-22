@@ -1,11 +1,10 @@
 import logging
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 import ast
 import pymysql
 import csv
 import compute_recommending_menu
-import log
 
 app = Flask(__name__)
 
@@ -47,7 +46,6 @@ def home():
 
 @app.route('/<int:user_id>')
 def recommend(user_id):
-    log.log(request, 'previous each menu data = ' + str(each_menu_recommend_data))
     result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, conn)
     return jsonify({"recommend_menus": result})
 
