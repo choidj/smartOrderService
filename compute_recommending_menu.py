@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import multiprocessing
-
+import log
 
 
 
@@ -68,7 +68,7 @@ def user_recommend(user_id, each_menu_recommend_data, conn):
     ratings = pd.read_sql_query(sql_input, conn)
     ratings = ratings[['menu_id', 'rating']]
     ratings_matrix = ratings.values.tolist()
-
+    log.log(request, ratings_matrix)
     if len(ratings_matrix) > 69:
         if __name__ == '__main__':
             multiprocessing_recommend(ratings_matrix, each_menu_recommend_data, func_result)
