@@ -5,9 +5,10 @@ import ast
 import pymysql
 import csv
 import compute_recommending_menu
+import flask_cors CORS, cross_origin
 
 app = Flask(__name__)
-
+CORS(app)
 logging.basicConfig(filename="logs/test.log", level=logging.DEBUG)
 conn = pymysql.connect(host='3.36.135.2',
                        port=3306,
