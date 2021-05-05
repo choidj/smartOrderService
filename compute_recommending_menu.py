@@ -33,19 +33,19 @@ def gather_menu(user_id, pearson, each_menu_recommend_data, return_list, conn, i
     sql_input_count = "select menu_id, count(menu_id) from payment where user_id = " + str(
         user_id) + " group by user_id, menu_id order by count(menu_id) desc"
     user_favor = pd.read_sql_query(sql_input_count, conn)
-    pearson_datas = each_menu_recommend_data[user_favor['menu_id'][0]]['Pearson Data']
+
+    pearson_datas = each_menu_recommend_data[user_favor['menu_id'][0] - 1]['Pearson Data']
     refined_datas = []
     for x in pearson_datas:
         temp = user_favor[user_favor['menu_id'] == x[0]]
-
         if not temp.empty:
-            print(temp['count(menu_id)'].values[0])
             refined_datas.append((x[0], x[1] * pearson * tier2_weight * temp['count(menu_id)'].values[0]))
         else:
             no_count_weight = 0.8
             refined_datas.append((x[0], x[1] * pearson * tier2_weight * no_count_weight))
     func_result = []
     refined_datas.append((user_favor['menu_id'][0], pearson * tier1_weight * user_favor['count(menu_id)'][0]))
+    print(refined_datas)
     func_result.append(refined_datas)
 
     return_list.append(func_result)
@@ -89,9 +89,18 @@ def don_dup(request_list, request_result_element_num, element_num=0):
 
 # 로직 바꿔야 함.
 def user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn):
-    request_result_num = 5
-    result_list = []
+    sql_input = "SELECT id FROM user WHERE auth = 1 and id = " + str(user_id)
+    user = pd.read_sql_query(sql_input, conn)
+    if user.empty:
+        result_list = non_user_recommend_func(user_id, each_menu_recommend_data, conn)
+    else:
+        result_list = user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
 
+    return result_list
+
+def user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn):
+    result_list = []
+    request_result_num = 5
     cur_user_pearson_datas = each_user_pearson_data[user_id - 501]['Pearson Data']
     gather_menu(user_id, 0.4, each_menu_recommend_data, result_list, conn)
     for user_pearson in cur_user_pearson_datas:
@@ -102,29 +111,28 @@ def user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, co
 
     return final_result
 
+def non_user_recommend_func(user_id, each_menu_recommend_data, conn):
+    manager = multiprocessing.Manager()
+    func_result = manager.list()
+    request_result_num = 5
+    sql_input = "SELECT user_id, menu_id, rating FROM user_menu_rating where user_id = " + str(
+        user_id) + " order by updated_at"
+    ratings = pd.read_sql_query(sql_input, conn)
+    ratings = ratings[['menu_id', 'rating']]
+    ratings_matrix = ratings.values.tolist()
+    if len(ratings_matrix) > 69:
+        if __name__ == '__main__':
+            multiprocessing_recommend(ratings_matrix, each_menu_recommend_data, func_result)
+    else:
+        # func_start_time = time.perf_counter()
 
-# def user_recommend(user_id, each_menu_recommend_data, conn):
-#     manager = multiprocessing.Manager()
-#     func_result = manager.list()
-#     request_result_num = 5
-#     sql_input = "SELECT user_id, menu_id, rating FROM user_menu_rating where user_id = " + str(
-#         user_id) + " order by updated_at"
-#     ratings = pd.read_sql_query(sql_input, conn)
-#     ratings = ratings[['menu_id', 'rating']]
-#     ratings_matrix = ratings.values.tolist()
-#     if len(ratings_matrix) > 69:
-#         if __name__ == '__main__':
-#             multiprocessing_recommend(ratings_matrix, each_menu_recommend_data, func_result)
-#     else:
-#         # func_start_time = time.perf_counter()
-#
-#         process_recommend(ratings_matrix, each_menu_recommend_data, func_result)
-#
-#         # func_end_time = time.perf_counter()
-#         # print("싱글프로세싱. : ", func_end_time - func_start_time)
-#
-#     func_result = np.array(func_result).reshape(-1, 2).tolist()
-#     func_result.sort(key=lambda x: x[1], reverse=True)
-#     final_result = don_dup(request_list=func_result, request_result_element_num=request_result_num)
-#
-#     return final_result
+        process_recommend(ratings_matrix, each_menu_recommend_data, func_result)
+
+        # func_end_time = time.perf_counter()
+        # print("싱글프로세싱. : ", func_end_time - func_start_time)
+
+    func_result = np.array(func_result).reshape(-1, 2).tolist()
+    func_result.sort(key=lambda x: x[1], reverse=True)
+    final_result = don_dup(request_list=func_result, request_result_element_num=request_result_num)
+
+    return final_result
