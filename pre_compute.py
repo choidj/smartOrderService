@@ -143,4 +143,4 @@ def pre_compute_rank(isMenu=True):
         end_time = time.perf_counter()
         print("Data Compute Complete, Working time : ", end_time - start_time)
 if __name__ == '__main__':
-  pre_compute_rank(False)
+  pre_compute_rank(True)
