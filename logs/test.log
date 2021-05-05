@@ -1336,3 +1336,434 @@ INFO:werkzeug:39.119.57.117 - - [05/May/2021 18:38:19] "[37mOPTIONS /820 HTTP/1
 INFO:werkzeug:39.119.57.117 - - [05/May/2021 18:38:19] "[37mGET /820 HTTP/1.1[0m" 200 -
 INFO:werkzeug:39.119.57.117 - - [05/May/2021 18:38:44] "[37mOPTIONS /801 HTTP/1.1[0m" 200 -
 INFO:werkzeug:39.119.57.117 - - [05/May/2021 18:38:44] "[37mGET /801 HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:125.138.216.31 - - [05/May/2021 23:11:33] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [05/May/2021 23:11:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+ERROR:app:Exception on /820 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 94, in user_recommend
+    user_create_date = user['created_at'][0].to_pydatetime()
+  File "/usr/local/lib/python3.6/dist-packages/pandas/core/series.py", line 879, in __getitem__
+    return self._values[key]
+IndexError: index 0 is out of bounds for axis 0 with size 0
+INFO:werkzeug:125.138.216.31 - - [05/May/2021 23:11:39] "[35m[1mGET /820 HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /820 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 94, in user_recommend
+    user_create_date = user['created_at'][0].to_pydatetime()
+  File "/usr/local/lib/python3.6/dist-packages/pandas/core/series.py", line 879, in __getitem__
+    return self._values[key]
+IndexError: index 0 is out of bounds for axis 0 with size 0
+INFO:werkzeug:125.138.216.31 - - [05/May/2021 23:11:42] "[35m[1mGET /820 HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /800 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 95, in user_recommend
+    now_date = dt.now()
+NameError: name 'dt' is not defined
+INFO:werkzeug:125.138.216.31 - - [05/May/2021 23:12:48] "[35m[1mGET /800 HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /555 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 95, in user_recommend
+    now_date = dt.now()
+NameError: name 'dt' is not defined
+INFO:werkzeug:125.138.216.31 - - [05/May/2021 23:12:52] "[35m[1mGET /555 HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /511 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 95, in user_recommend
+    now_date = dt.now()
+NameError: name 'dt' is not defined
+INFO:werkzeug:125.138.216.31 - - [05/May/2021 23:12:57] "[35m[1mGET /511 HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /1 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 94, in user_recommend
+    user_create_date = user['created_at'][0].to_pydatetime()
+  File "/usr/local/lib/python3.6/dist-packages/pandas/core/series.py", line 879, in __getitem__
+    return self._values[key]
+IndexError: index 0 is out of bounds for axis 0 with size 0
+INFO:werkzeug:125.138.216.31 - - [05/May/2021 23:13:00] "[35m[1mGET /1 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:37:01] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:37:04] "[37mGET /22 HTTP/1.1[0m" 200 -
+ERROR:app:Exception on /501 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 99, in user_recommend
+    now_date = dt.now()
+NameError: name 'dt' is not defined
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:37:07] "[35m[1mGET /501 HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /600 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 99, in user_recommend
+    now_date = dt.now()
+NameError: name 'dt' is not defined
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:37:13] "[35m[1mGET /600 HTTP/1.1[0m" 500 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:37:17] "[37mGET /820 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:37:25] "[37mGET /824 HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ERROR:app:Exception on /823 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 102, in user_recommend
+    result_list = user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 109, in user_recommend_func
+    cur_user_pearson_datas = each_user_pearson_data[user_id - 501]['Pearson Data']
+IndexError: list index out of range
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:38:49] "[35m[1mGET /823 HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /822 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 102, in user_recommend
+    result_list = user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 109, in user_recommend_func
+    cur_user_pearson_datas = each_user_pearson_data[user_id - 501]['Pearson Data']
+IndexError: list index out of range
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:38:53] "[35m[1mGET /822 HTTP/1.1[0m" 500 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:38:57] "[37mGET /555 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:39:01] "[37mGET /800 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:39:34] "[37mGET /803 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:39:46] "[37mGET /804 HTTP/1.1[0m" 200 -
+ERROR:app:Exception on /822 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 102, in user_recommend
+    result_list = user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 109, in user_recommend_func
+    cur_user_pearson_datas = each_user_pearson_data[user_id - 501]['Pearson Data']
+IndexError: list index out of range
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:40:00] "[35m[1mGET /822 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ERROR:app:Exception on /822 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 105, in user_recommend
+    result_list = user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 112, in user_recommend_func
+    cur_user_pearson_datas = each_user_pearson_data[user_id - 501]['Pearson Data']
+IndexError: list index out of range
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:46:13] "[35m[1mGET /822 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ERROR:app:Exception on /822 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 105, in user_recommend
+    result_list = user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 112, in user_recommend_func
+    cur_user_pearson_datas = each_user_pearson_data[user_id - 501]['Pearson Data']
+IndexError: list index out of range
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:48:51] "[35m[1mGET /822 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ERROR:app:Exception on /822 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 105, in user_recommend
+    result_list = user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 112, in user_recommend_func
+    cur_user_pearson_datas = each_user_pearson_data[user_id - 501]['Pearson Data']
+IndexError: list index out of range
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:50:37] "[35m[1mGET /822 HTTP/1.1[0m" 500 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:51:41] "[37mGET /821 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:51:54] "[37mGET /820 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:52:03] "[37mGET /819 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:52:25] "[37mGET /800 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:52:38] "[33mGET /80q HTTP/1.1[0m" 404 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:52:41] "[37mGET /801 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:52:46] "[37mGET /802 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:52:48] "[37mGET /803 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:52:51] "[37mGET /804 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:52:55] "[37mGET /805 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:53:17] "[37mGET /817 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:53:26] "[37mGET /820 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:53:50] "[37mGET /821 HTTP/1.1[0m" 200 -
+ERROR:app:Exception on /822 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 105, in user_recommend
+    result_list = user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 112, in user_recommend_func
+    cur_user_pearson_datas = each_user_pearson_data[user_id - 501]['Pearson Data']
+IndexError: list index out of range
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:53:53] "[35m[1mGET /822 HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /822 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app.py", line 57, in recommend
+    result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 105, in user_recommend
+    result_list = user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+  File "/home/ubuntu/smartOrderService/compute_recommending_menu.py", line 112, in user_recommend_func
+    cur_user_pearson_datas = each_user_pearson_data[user_id - 501]['Pearson Data']
+IndexError: list index out of range
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:54:15] "[35m[1mGET /822 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:55:42] "[37mGET /822 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:55:45] "[37mGET /823 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:55:47] "[37mGET /824 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:56:07] "[37mGET /823 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:56:11] "[33mGET /801] HTTP/1.1[0m" 404 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:56:14] "[37mGET /801 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:56:17] "[37mGET /802 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:56:19] "[37mGET /804 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:56:21] "[37mGET /806 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:56:24] "[37mGET /807 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:56:29] "[37mGET /8013 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:56:33] "[37mGET /813 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:56:38] "[37mGET /820 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:56:40] "[37mGET /821 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:56:43] "[37mGET /822 HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:59:11] "[37mGET /1 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:59:14] "[37mGET /133 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:59:16] "[37mGET /666 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:59:21] "[37mGET /591 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:59:26] "[37mGET /501 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:59:32] "[37mGET /802 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:59:34] "[37mGET /801 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:59:36] "[37mGET /820 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:59:38] "[37mGET /823 HTTP/1.1[0m" 200 -
+INFO:werkzeug:125.138.216.31 - - [06/May/2021 02:59:41] "[37mGET /822 HTTP/1.1[0m" 200 -

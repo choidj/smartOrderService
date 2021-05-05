@@ -1,0 +1,4 @@
+
+필수!!!!
+
+오랜만에 다시 실행시에 해야할 일. pre_compute.py를 실행시켜 recommend_menu_data.csv, recommend_user_data.csv를 환기시켜 줄 것.
