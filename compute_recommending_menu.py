@@ -66,9 +66,12 @@ def don_dup(request_list, request_result_element_num, element_num=0):
 
 # 로직 바꿔야 함.
 def user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn):
-    sql_input = "SELECT id, created_at FROM user WHERE auth = 1 and id = " + str(user_id)
-    user = pd.read_sql_query(sql_input, conn)
-    
+    user_sql_input = "SELECT id, created_at FROM user WHERE auth = 1 and id = " + str(user_id)
+    rating_sql_input = "SELECT id FROM user_menu_rating WHERE id = " + str(user_id)
+
+    user = pd.read_sql_query(user_sql_input, conn)
+    rating = pd.read_sql_query(rating_sql_input, conn)
+
     if (user.empty):
         result_list = non_user_recommend_func(user_id, each_menu_recommend_data, conn)
     else:
@@ -84,7 +87,7 @@ def user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, co
 def user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn):
     result_list = []
     request_result_num = 5
-    cur_user_pearson_datas = each_user_pearson_data[user_id - 501]['Pearson Data']
+    cur_user_pearson_datas = each_user_pearson_data[user_id - 1]['Pearson Data']
     gather_menu(user_id, 0.4, each_menu_recommend_data, result_list, conn)
     for user_pearson in cur_user_pearson_datas:
         gather_menu(user_pearson[0], user_pearson[1], each_menu_recommend_data, result_list, conn, True)
