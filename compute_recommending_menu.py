@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import multiprocessing
 from datetime import datetime, timedelta
-
+from random import *
 
 
 def process_recommend(ratings_matrix, each_menu_recommend_data, return_list):
@@ -66,19 +66,24 @@ def don_dup(request_list, request_result_element_num, element_num=0):
 
 # 로직 바꿔야 함.
 def user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn):
-    user_sql_input = "SELECT id, created_at FROM user WHERE auth = 1 and id = " + str(user_id)
-    rating_sql_input = "SELECT id FROM user_menu_rating WHERE id = " + str(user_id)
-
+    user_sql_input = "SELECT id FROM user WHERE auth = 1 and id = " + str(user_id)
     user = pd.read_sql_query(user_sql_input, conn)
-    rating = pd.read_sql_query(rating_sql_input, conn)
 
     if (user.empty):
         result_list = non_user_recommend_func(user_id, each_menu_recommend_data, conn)
     else:
-        user_create_date = user['created_at'][0].to_pydatetime()
-        now_date = datetime.now()
-        if (((now_date - user_create_date).seconds / 3600) < 16):
-            result_list = non_user_recommend_func(user_id, each_menu_recommend_data, conn)
+        rating_sql_input = "SELECT id FROM user_menu_rating WHERE id = " + str(user_id)
+        user_rating_sql_input = "select user_id, count(*) from user_menu_rating group by user_id;"
+
+        rating = pd.read_sql_query(rating_sql_input, conn)
+        user_rating = pd.read_sql_query(user_rating_sql_input, conn)
+
+        rand_user_id = user_rating['user_id'][randint(0, len(user_rating) - 1)]
+        while rand_user_id == user_id:
+            rand_user_id = user_rating['user_id'][randint(0, len(user_rating) - 1)]
+
+        if rating.empty:
+            result_list = non_user_recommend_func(rand_user_id, each_menu_recommend_data, conn)
         else:
             result_list = user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
 

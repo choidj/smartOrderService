@@ -49,7 +49,6 @@ def recommend(input_, matrix, n, similar_category=True, isMenu=True):
     else:
         input_category = data[data['user_id'].isin([input_])]['category']
         ran = user['id']
-    matrix
     #     카테고리 한개나옴
     result = []
     for name in ran:
@@ -108,6 +107,7 @@ def process_recommend(process_num, return_list, matrix, isMenu=True):
         else:
             func_result_dict['User ID'] = id
             func_result_dict['Pearson Data'] = refined_pearson_data
+            print(func_result_dict['User ID'])
         return_list.append(func_result_dict)
     # 여기서 csv에 메뉴아이디와 메뉴 랭킹들 리스트 넣음 + 사전형식으로. dict
 
@@ -143,5 +143,5 @@ def pre_compute_rank(isMenu=True):
         end_time = time.perf_counter()
         print("Data Compute Complete, Working time : ", end_time - start_time)
 if __name__ == '__main__':
-  pre_compute_rank(True)
+  # pre_compute_rank(True)
   pre_compute_rank(False)
