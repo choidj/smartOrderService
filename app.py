@@ -48,10 +48,10 @@ def refresh_data():
 
 @app.route('/<int:user_id>')
 def recommend(user_id):
-    conn = pymysql.connect(host='3.36.135.2',
+    conn = pymysql.connect(host='15.165.94.237',
                            port=3306,
-                           user='tkddn2356',
-                           password='qwe123012',
+                           user='root',
+                           password='qwe35790',
                            db='smart_order')
 
     result = compute_recommending_menu.user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn)

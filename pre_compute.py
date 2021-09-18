@@ -17,7 +17,7 @@ conn = pymysql.connect(host='3.36.135.2',
 sql_input = "SELECT id, category FROM menu"
 menu = pd.read_sql_query(sql_input, conn)
 
-sql_input = "SELECT id FROM user WHERE auth = 1"
+sql_input = "SELECT umr.user_id as id FROM user u, user_menu_rating umr WHERE auth = 1 and umr.user_id = u.id group by id"
 user = pd.read_sql_query(sql_input, conn)
 
 sql_input = "select umr.user_id, umr.menu_id, umr.rating, m.category from user_menu_rating umr, menu m where umr.menu_id = m.id;"

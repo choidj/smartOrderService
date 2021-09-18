@@ -66,14 +66,16 @@ def don_dup(request_list, request_result_element_num, element_num=0):
 
 # 로직 바꿔야 함.
 def user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, conn):
-    user_sql_input = "SELECT id FROM user WHERE auth = 1 and id = " + str(user_id)
+    user_sql_input = "SELECT id, created_at FROM user WHERE auth = 1 and id = " + str(user_id)
     user = pd.read_sql_query(user_sql_input, conn)
 
     if (user.empty):
         result_list = non_user_recommend_func(user_id, each_menu_recommend_data, conn)
     else:
-        rating_sql_input = "SELECT id FROM user_menu_rating WHERE id = " + str(user_id)
-        user_rating_sql_input = "select user_id, count(*) from user_menu_rating group by user_id;"
+        rating_sql_input = "SELECT user_id FROM user_menu_rating WHERE user_id = " + str(user_id)
+        user_rating_sql_input = "select user_id from user_menu_rating group by user_id;"
+        user_create_date = user['created_at'][0].to_pydatetime()
+        now_date = datetime.now()
 
         rating = pd.read_sql_query(rating_sql_input, conn)
         user_rating = pd.read_sql_query(user_rating_sql_input, conn)
@@ -85,7 +87,10 @@ def user_recommend(user_id, each_menu_recommend_data, each_user_pearson_data, co
         if rating.empty:
             result_list = non_user_recommend_func(rand_user_id, each_menu_recommend_data, conn)
         else:
-            result_list = user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
+            if (((now_date - user_create_date).seconds / 3600) < 16):
+                result_list = non_user_recommend_func(user_id, each_menu_recommend_data, conn)
+            else:
+                result_list = user_recommend_func(user_id, each_menu_recommend_data, each_user_pearson_data, conn)
 
     return result_list
 
