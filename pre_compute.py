@@ -97,15 +97,17 @@ def process_recommend(process_num, return_list, matrix, isMenu=True):
         length = menu_length
     else :
         length = user_length
-    for id in range(process_num + 1, length + 1, process_core):
-        refined_pearson_data = recommend(id, matrix, rating_num,
-                                         similar_category=True, isMenu=isMenu)
+    for id in range(process_num, length, process_core):
         func_result_dict = dict()
-        if isMenu:
-            func_result_dict['Menu ID'] = id
+        if isMenu :
+            refined_pearson_data = recommend(menu['id'][id], matrix, rating_num,
+                                         similar_category=True, isMenu=isMenu)
+            func_result_dict['Menu ID'] = menu['id'][id]
             func_result_dict['Pearson Data'] = refined_pearson_data
-        else:
-            func_result_dict['User ID'] = id
+        else :
+            refined_pearson_data = recommend(user['id'][id], matrix, rating_num,
+                                         similar_category=True, isMenu=isMenu)
+            func_result_dict['User ID'] = user['id'][id]
             func_result_dict['Pearson Data'] = refined_pearson_data
             print(func_result_dict['User ID'])
         return_list.append(func_result_dict)
@@ -143,5 +145,5 @@ def pre_compute_rank(isMenu=True):
         end_time = time.perf_counter()
         print("Data Compute Complete, Working time : ", end_time - start_time)
 if __name__ == '__main__':
-  # pre_compute_rank(True)
+  pre_compute_rank(True)
   pre_compute_rank(False)
